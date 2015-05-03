@@ -258,8 +258,8 @@ iptables -A INPUT -p tcp --syn -j SYN_FLOOD
 iptables -N HTTP_DOS # "HTTP_DOS" という名前でチェーンを作る
 iptables -A HTTP_DOS -p tcp -m multiport --dports $HTTP \
          -m hashlimit \
-         --hashlimit 1/s \
-         --hashlimit-burst 100 \
+         --hashlimit 120/s \
+         --hashlimit-burst 120 \
          --hashlimit-htable-expire 300000 \
          --hashlimit-mode srcip \
          --hashlimit-name t_HTTP_DOS \
