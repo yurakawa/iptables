@@ -172,7 +172,7 @@ fi
 ###########################################################
 # セッション確立後のパケット疎通は許可
 ###########################################################
-iptables -A INPUT  -p tcp -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 ###########################################################
 # 攻撃対策: Stealth Scan
