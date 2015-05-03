@@ -208,8 +208,8 @@ iptables -A INPUT -f -j DROP
 iptables -N PING_OF_DEATH # "PING_OF_DEATH" という名前でチェーンを作る
 iptables -A PING_OF_DEATH -p icmp --icmp-type echo-request \
          -m hashlimit \
-         --hashlimit 1/s \
-         --hashlimit-burst 10 \
+         --hashlimit 5/s \
+         --hashlimit-burst 60 \
          --hashlimit-htable-expire 300000 \
          --hashlimit-mode srcip \
          --hashlimit-name t_PING_OF_DEATH \
